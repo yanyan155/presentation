@@ -1,11 +1,11 @@
 Hello everyone, my name is Yan, and theme of today's lecture is how browser works.
 So, let's start.
-And first of all we must understand what is main components of each browser.
+And first of all we must understand what is main components of each browser?
 And this is User Interface, browser engine, rendering engine, networking, javascript interpreter, ui backend, and data persistence
 let's view each of them.
 First of all .... first components is the User Interface.
 It displays all tools and bars of browser except the window of site.
-And this is: an address bar, back/forward buttons, a bookmarking menu, developer tools, e.g.
+And this is: an address bar, back/forward buttons, a bookmarking menu, developer tools, etc.
 On the images below you can see ... what the user interface is represents.
 This is some kind of menu and click notification.
 So, let's move on.
@@ -22,27 +22,27 @@ good, next component is Networking.
 It provides functionality to handle retrieve urls using internet protocols like http and ftp.
 And another one component is The user interface backend.
 It uses for drawing basic widgets like combo boxes and windows.
-It give the common interface that is not relative for different platforms.
-And another component of browser is JS interpreter.
+It gives the common interface that is not relative for different platforms.
+And ... another ... component of browser is JS interpreter.
 It uses to parse and execute JavaScript code. Actual js engines is v8, rhino, chakra, spidermonkey.
 And the last component of browser is Data storage.
 It represents for save all sorts of data locally, such as cookies.
 Also it supports storage mechanisms such as localStorage, IndexedDB, WebSQL and FileSystem.
 Okay, and now let's view more particulary to rendering engine.
-and ... see what steps it includes to render page.
+and ... see what steps it includes to ... render page.
 And here on the picture below we can see that this is:
 create DOM, create CSSOM, create render tree, create layout,
 visualization process.
 Also on the picture you can see JS, but about js a little bit late.
 So first of all construction the dom tree.
-On the picture we can see main transformation from raw bites to DOM.
+On the picture we can see main ... transformation from raw bites to DOM.
 Here bites transform into characters, characters transform into tokens
 tokens into nodes and nodes actually into Document Object Model.
-Now let's move on and understand what (+is going) on each step (-is going on).
+Now let's move on and understand what (+is going) on each step (-is going on)?
 So, raw bytes of data are converted into symbols also called characters.
 Then Parser transforms characters into tokens.
 It  starts reading each string line by line and finds characters in angle brackets like "html", "p" and sets rules that apply to each of token.
-Then tokens transform into nodes You can ... visualize or imagine nodes like
+Then tokens transform into nodes. You can ... visualize or imagine nodes like
 separate structure of dom tree.
 And the last step is create children-parent and sibling relationships between nodes.
 And now see on the picture what is going on.
@@ -60,22 +60,23 @@ In css this is called cascade of styling.
 And now let's view on the picture to better understand what is going on.
 Here we have basic css file on the top image, and on the bottom image we have represent of CSSOM tree.
 So, what we can see here? (We can see) that node "p" (-has) inherits font-size: 16px from body
-And node span inherits from node "p" his "attribute" font-weight with value "bold".
+(+We can see) that node "p" (-has) inherits font-size: 16px from body
+And node span inherits from node p his attribute "font-weight" with value "bold".
 And also all this nodes* like "p", "span", and images have children-parent relationships
 between each other.
 Okay, we have now cssom. So, What is next?
 And next (step) is to create render tree.
 Here we have several rules to ... engine to create render tree.
 And this is first of all: engine goes throw each dom node form it’s head and find all visible elements.
-Then also engine doesn’t include elements, that do not represent on the page this is scriprs, metatags, e.g.
+Then also engine doesn’t include elements, that do not represent on the page this is scriprs, metatags, etc.
 Also engine doesn’t include elements, that has "display:none"
 And the last step finds css properties from CSSOM nodes and apply it for DOM nodes.
-So, let's view on the picture what is going on.
+So, let's view on the picture what is going on?
 In this image we can see dom and cssom structures and on the bottom wee can see render tree.
 First of all we must understand that not all nodes from are represents in render tree.
-In render tree we don't see html node, head node, and also span node.
+(- In render tree) We don't see html node, head node, and also span node (+ in render tree).
 Why? Because this elements has no visible content. And ... after find this elements that* are not represent
-on render tree, we can see elements that have* visible content and this is "body", "p", "div" and image (nodes).
+on render tree, we can see elements that have* visible content and this is "body", "p", "div" and image (+nodes).
 And for each of this element engine finds properties from cssom and apply it for visible dom nodes.
 And this is result ... render tree. So node body has font-size: 16px, like in the cssom (node body has) font-size: 16px.
 And each of other (dom) visible elements has properties represents in cssom
@@ -84,8 +85,8 @@ And the next step is construct layout.
 What is going on in this step?
 In this step browser defines position* and size of each element of render tree.
 and here on the video below we can see how it actually works.
-browser find for each visible component it's size width and position and compose them on the page.
-And when browser build all layout ... it start visualize the page.
+browser finds for each visible component it's size width and position and compose them on the page.
+And when browser build all layout ... it starts visualize* the page.
 okay and the last step is visualization.
 so what is going on here?
 In this step all objects transform into pixels on the page.
@@ -95,8 +96,8 @@ Notice that event “onload” will happen only when all resources will be download 
 Good, we see all main components of rendering page, but what is going on with javascript?
 Now let's vies on the rendering process to better understand what is going on.
 And first of all let's vies on the process without js file.
-Here we have basic html code with 1 link to css file.
-And first of all what do browser creates request for html file.
+Here we have ... basic html code with 1 link to css file.
+And first of all what do browser is creates request for html file.
 And when browser get response from server it starts building dom.
 and it* goes* line by line throw each ... string and it finds link to style.css
 Browser immediately creates request for style.css file and continues building dom.
@@ -104,7 +105,7 @@ And when css file is response from server starts create CSSOM and then render pa
 good, next. What is going on with javascript? And first of all we have some rules for browser rendering engine.
 First rule is when browser find tag script in the source it stops building  DOM tree (if script doesn’t async), until all js will be complete
 And the next rule is js starts processing only after cssom complete
-so let's view on the picture what is going on here?
+so let's view on the picture what is going on?
 here we have example same to previous but now we have tag script on the body.
 let's view what is going on here?
 First of all browser also create request for html file and when it response browser starts building dome.
@@ -114,7 +115,7 @@ And you can see in the picture that browser immediately create request for js (f
 But now browser can not continue building dom until css file will be get from server and browser fully complete
 create cssom.
 Only after complete cssom browser runs js and when js is complete, only after this moment browser continues building dom.
-And then it renders page.
+And then it ... renders page.
 and the last example is what is going on with async js.
 And here we have also several rules:
 first of all async js doesn’t stop building dom.
@@ -125,7 +126,7 @@ So, let's view what is going on with render process.
 First of all browser ... like in the previous examples create request for html file and when html file is get to browser from server
 (-we have) browser starts creating dom and line by line it goes throw html* code* and finds link to css fyle* and browser creates request for server ... to get css file.
 and also immediately it creates asunc request for js file.
-And in this moment browser continues building dome because async js doesn't block
+And in this moment browser continues building dom because async js doesn't block
 create dom.
 And when ... server has response ... and ... give to browser css file browser starts building cssom.
 when cssom is fully completed browser starts run js and then it renders page.
